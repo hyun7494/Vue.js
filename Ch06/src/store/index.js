@@ -26,7 +26,7 @@ export const store = createStore({
       state.count--;
     },
     INIT_COUNT: function (state) {
-      state.count = 0;
+      state.count;
     },
   },
 
