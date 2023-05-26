@@ -68,6 +68,7 @@
 <script setup>
 import axios from "axios";
 import { reactive, ref } from "vue";
+
 const users = ref([]);
 const user = reactive({
   uid: "",
@@ -76,6 +77,7 @@ const user = reactive({
   age: 0,
 });
 const inputText = ref("");
+
 const getUsers = function () {
   axios({
     url: "http://localhost:8080/Ch09/user1s",
@@ -91,10 +93,12 @@ const getUsers = function () {
       console.log("error : " + error);
     });
 };
+
 const getUser = () => {
   const jsonData = {
     uid: inputText.value,
   };
+
   axios({
     url: "http://localhost:8080/Ch09/user1",
     method: "get",
@@ -113,10 +117,12 @@ const getUser = () => {
       console.log("error : " + error);
     });
 };
+
 const getUser1 = () => {
   const jsonData = {
     uid: inputText.value,
   };
+
   axios
     .get("http://localhost:8080/Ch09/user1", { params: jsonData })
     .then((response) => {
@@ -131,6 +137,7 @@ const getUser1 = () => {
       console.log("error : " + error);
     });
 };
+
 const postUser = () => {
   const jsonData = {
     uid: user.uid,
@@ -138,6 +145,7 @@ const postUser = () => {
     hp: user.hp,
     age: user.age,
   };
+
   axios({
     url: "http://localhost:8080/Ch09/user1",
     method: "post",
